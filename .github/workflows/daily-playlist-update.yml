@@ -1,0 +1,35 @@
+name: Daily playlist update
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # 06:00 America/Sao_Paulo
+  workflow_dispatch: {}
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run playlist update
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          TARGET_PLAYLIST_ID: ${{ secrets.TARGET_PLAYLIST_ID }}
+        run: pnpm run start

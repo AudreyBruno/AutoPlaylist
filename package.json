@@ -1,0 +1,21 @@
+{
+  "name": "autoplaylist",
+  "version": "1.0.0",
+  "description": "Adds videos published in the last 24h by your YouTube subscriptions to a playlist",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "get-refresh-token": "tsx scripts/get-refresh-token.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
