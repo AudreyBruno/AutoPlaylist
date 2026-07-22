@@ -1,4 +1,4 @@
-# listyoutube
+# AutoPlaylist
 
 Todo dia, às 06:00 (horário de Brasília), percorre todos os canais que você segue no YouTube e
 adiciona os vídeos publicados nas últimas 24 horas a uma playlist existente. Roda como um
@@ -49,7 +49,7 @@ esse valor e preencha também no `.env` (e no passo 5, como secret do GitHub).
 ### 4. Criar o repositório privado no GitHub
 
 ```bash
-gh repo create listyoutube --private --source=. --remote=origin
+gh repo create AutoPlaylist --private --source=. --remote=origin
 git push -u origin main
 ```
 
