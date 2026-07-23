@@ -2,7 +2,7 @@ name: Daily playlist update
 
 on:
   schedule:
-    - cron: '0 9 * * *' # 06:00 America/Sao_Paulo
+    - cron: '*/5 * * * *'
   workflow_dispatch: {}
 
 jobs:
